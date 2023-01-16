@@ -1,0 +1,224 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+*,
+*::before,
+*::after {
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #191919;
+}
+
+nav>ul li.active-tab {
+  background: rgba(61, 210, 204, 0.4);
+  color: #3DD2CC;
+}
+
+.checkbox {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
+
+.checkbox+label {
+  position: relative;
+  font-size: 14px;
+  cursor: pointer;
+  display: inline-flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: space-between;
+  height: 22px;
+  width: 100%;
+}
+
+.checkbox+label::before {
+  content: " ";
+  display: inline-block;
+  vertical-align: middle;
+  width: 20px;
+  height: 20px;
+  background-color: rgb(1, 171, 171);
+  border-width: 1px;
+  border-style: solid;
+  border-color: #01abab;
+  border-radius: 2px;
+  box-shadow: none;
+}
+
+.checkbox:checked+label::after {
+  content: " ";
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjZmZmZmZmIiBkPSJNMTczLjg5OCA0MzkuNDA0bC0xNjYuNC0xNjYuNGMtOS45OTctOS45OTctOS45OTctMjYuMjA2IDAtMzYuMjA0bDM2LjIwMy0zNi4yMDRjOS45OTctOS45OTggMjYuMjA3LTkuOTk4IDM2LjIwNCAwTDE5MiAzMTIuNjkgNDMyLjA5NSA3Mi41OTZjOS45OTctOS45OTcgMjYuMjA3LTkuOTk3IDM2LjIwNCAwbDM2LjIwMyAzNi4yMDRjOS45OTcgOS45OTcgOS45OTcgMjYuMjA2IDAgMzYuMjA0bC0yOTQuNCAyOTQuNDAxYy05Ljk5OCA5Ljk5Ny0yNi4yMDcgOS45OTctMzYuMjA0LS4wMDF6Ii8+PC9zdmc+");
+  background-repeat: no-repeat;
+  background-size: 12px 12px;
+  background-position: center center;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  right: 0;
+  top: 0;
+  text-align: center;
+  background-color: transparent;
+  font-size: 15px;
+  height: 22px;
+  width: 22px;
+}
+
+.movie--btn {
+  background: rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(2.5px);
+}
+
+.movie-rating {
+  background: rgba(33, 33, 33, 0.15);
+  backdrop-filter: blur(2.5px);
+  border-radius: 0px 1rem;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  margin-left: 2px;
+}
+
+::-webkit-scrollbar-track {
+  background: #191919;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(16, 16, 16);
+  border-radius: 2rem;
+}
+
+.hamburger {
+  padding: 10px 10px;
+  display: inline-block;
+  transition-duration: 0.15s;
+  transition-timing-function: linear;
+  text-transform: none;
+  background-color: transparent;
+  border: 0;
+  margin: 0;
+  overflow: visible;
+  position: relative;
+  z-index: 50;
+}
+
+.hamburger-inner {
+  display: block;
+  top: 50%;
+  margin-top: -2px;
+}
+
+.hamburger.is-active {
+  margin-left: -1rem;
+}
+
+.hamburger.is-active .hamburger-inner,
+.hamburger.is-active .hamburger-inner::before,
+.hamburger.is-active .hamburger-inner::after {
+  background-color: #E8E8E8;
+}
+
+.hamburger-box {
+  width: 30px;
+  height: 24px;
+  display: inline-block;
+  position: relative;
+  margin-top: 3px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.hamburger-inner,
+.hamburger-inner::before,
+.hamburger-inner::after {
+  width: 25px;
+  height: 2px;
+  background-color: #E8E8E8;
+  position: absolute;
+  transition-property: transform;
+  transition-duration: 0.15s;
+  transition-timing-function: ease;
+  border-radius: 1rem;
+}
+
+.hamburger-inner::before,
+.hamburger-inner::after {
+  content: "";
+  display: block;
+}
+
+.hamburger-inner::before {
+  top: -8px;
+}
+
+.hamburger-inner::after {
+  bottom: -8px;
+}
+
+.hamburger--minus .hamburger-inner::before,
+.hamburger--minus .hamburger-inner::after {
+  transition: bottom 0.08s 0s ease-out, top 0.08s 0s ease-out, opacity 0s linear;
+}
+
+.hamburger--minus.is-active .hamburger-inner::before,
+.hamburger--minus.is-active .hamburger-inner::after {
+  opacity: 0;
+  transition: bottom 0.08s ease-out, top 0.08s ease-out, opacity 0s 0.08s linear;
+}
+
+.hamburger--minus.is-active .hamburger-inner::before {
+  top: 0;
+}
+
+.hamburger--minus.is-active .hamburger-inner::after {
+  bottom: 0;
+}
+
+@media screen and (max-width: 720px) {
+  .filter {
+    position: absolute;
+    right: 0;
+    padding-right: 1.5rem;
+    z-index: 50;
+    background: #191919;
+    height: calc(100% - 105px);
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .sidebar {
+    display: none;
+  }
+
+  .menu__link-title {
+    display: block !important;
+  }
+
+  .mobile-nav {
+    display: block !important;
+  }
+
+  .filter {
+    width: 75%;
+  }
+
+}
+
+@media screen and (max-width: 320px) {
+  .mobile-menu {
+    width: 100% !important;
+  }
+}
